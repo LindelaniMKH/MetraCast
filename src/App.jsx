@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <SearchBar setWeatherJSON={setWeatherJSON} setGeoJSON={setGeoJSON}></SearchBar>
-      <CurrentInfo weatherJSON={weatherJSON} geoJSON={setGeoJSON}></CurrentInfo>
+      <CurrentInfo weatherJSON={weatherJSON} geoJSON={geoJSON}></CurrentInfo>
     </>
   )
 }

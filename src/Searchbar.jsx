@@ -36,7 +36,7 @@ function SearchBar({setWeatherJSON, setGeoJSON}){
             //console.log(weather_result.current["temperature_2m"]);
 
             try{
-                var weather_url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_max&current=temperature_2m`;
+                var weather_url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_max&current=temperature_2m&daily=weather_code`;
 
                 const weather_response = await fetch(weather_url);
 
@@ -67,8 +67,8 @@ function SearchBar({setWeatherJSON, setGeoJSON}){
     return(
     <>
         <header>
-            <input className="p-2 border border-black rounded" type="text" placeholder="Enter the name of a city" value={city} onChange={(c) => setCity(c.target.value)}></input>
-            <button className="p-2 border border-black rounded hover:bg-gray-200" onClick={fetchData}>Search</button>
+            <input className="p-2 border border-black rounded font-mono" type="text" placeholder="Enter the name of a city" value={city} onChange={(c) => setCity(c.target.value)}></input>
+            <button className="p-2 border border-black rounded hover:bg-gray-200 fonto-mono" onClick={fetchData}>Search</button>
         </header>
     </>
     )
