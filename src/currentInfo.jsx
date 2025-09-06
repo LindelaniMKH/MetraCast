@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import Forcast from "./Forecast";
 
 function CurrentInfo({weatherJSON, geoJSON}){
-    const Conditions = new Array(7);
+    const Conditions = [];
     const date = new Date();
     const Day = date.getDate();
     const MonthIndex = date.getMonth();
@@ -12,19 +13,13 @@ function CurrentInfo({weatherJSON, geoJSON}){
     ];
      const MonthName = MonthNames[MonthIndex];
 
-    if (!weatherJSON){
-        return(
-                <h1></h1>
-        )
+    if (!weatherJSON || !geoJSON){
+        return null;
     }
 
-    if (!geoJSON){
-        return(
-            <h1></h1>
-        )
-    }
 
     const weatherCode = (weatherJSON.daily["weather_code"]);
+    const mean_temp = (weatherJSON.daily["temperature_2m_mean"]);
 
     var curr_WeatherCode = weatherCode[0];
 
@@ -70,15 +65,18 @@ function CurrentInfo({weatherJSON, geoJSON}){
     }
 
     console.log(weatherCode);
-    console.log(Conditions[7]);
+    console.log(Conditions[1]);
     return(
         <>
             <section>
                 <p className=" pt-3 font-mono"><b>{geoJSON.results[0]["country"]}, {geoJSON.results[0]["name"]}</b></p>
-                <p>{Conditions[7]}</p>
+                <p>{Conditions[0]}</p>
                 <h1 className="text-7xl pt-4 font-mono">{weatherJSON.current["temperature_2m"].toString()}°C</h1>
                 <p></p>
                 <p>{Day} {MonthName}, {Year}</p>
+            </section>
+            <section>
+               <Forcast condition={Conditions[1]} temp={mean_temp[1]}></Forcast>
             </section>
         </>
     )

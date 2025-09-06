@@ -36,7 +36,7 @@ function SearchBar({setWeatherJSON, setGeoJSON}){
             //console.log(weather_result.current["temperature_2m"]);
 
             try{
-                var weather_url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_max&current=temperature_2m&daily=weather_code`;
+                var weather_url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_mean&current=temperature_2m&daily=weather_code`;
 
                 const weather_response = await fetch(weather_url);
 
