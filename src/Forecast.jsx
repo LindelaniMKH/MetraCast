@@ -2,11 +2,18 @@ import React from "react";
 
 function Forcast(props){
 
+    const XDay = () => {
+        let today = new Date();
+        today.setDate(today.getDate() + props?.dayNum);
+        return today.toDateString();
+    };
+
+
     return(
         <div>
-            <div>{props?.temp}°C</div>
+            <div><b>{props?.temp}°C</b></div>
             <div>{props?.condition}</div>
-            <div>Date</div>
+            <div>{<XDay/>}</div>
         </div>
     )
 }

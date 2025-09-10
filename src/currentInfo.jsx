@@ -21,7 +21,8 @@ function CurrentInfo({weatherJSON, geoJSON}){
     const weatherCode = (weatherJSON.daily["weather_code"]);
     const mean_temp = (weatherJSON.daily["temperature_2m_mean"]);
 
-    var curr_WeatherCode = weatherCode[0];
+    let curr_WeatherCode = weatherCode[0];
+    let dayNum;
 
     for (let i=0; i < 6; i++){
         if (weatherCode[i] === 0){
@@ -75,9 +76,27 @@ function CurrentInfo({weatherJSON, geoJSON}){
                 <p></p>
                 <p>{Day} {MonthName}, {Year}</p>
             </section>
-            <section>
-               <Forcast condition={Conditions[1]} temp={mean_temp[1]}></Forcast>
-            </section>
+            <div className="py-8 flex flex row space-x-12 justify-center items-center">
+               <div>
+                  <Forcast condition={Conditions[1]} temp={mean_temp[1]} dayNum={1}></Forcast>
+               </div>
+
+               <div>
+                  <Forcast condition={Conditions[2]} temp={mean_temp[2]} dayNum={2}></Forcast>
+               </div>
+
+               <div>
+                  <Forcast condition={Conditions[3]} temp={mean_temp[3]} dayNum={3}></Forcast>
+               </div>
+
+               <div>
+                  <Forcast condition={Conditions[4]} temp={mean_temp[4]} dayNum={4}></Forcast>
+               </div>
+
+               <div>
+                  <Forcast condition={Conditions[5]} temp={mean_temp[5]} dayNum={5}></Forcast>
+               </div>
+            </div>
         </>
     )
 }
