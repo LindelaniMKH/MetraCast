@@ -7,7 +7,6 @@ import Forcast from './Forecast';
 function App() {
   const [weatherJSON, setWeatherJSON] = useState("");
   const [geoJSON, setGeoJSON] = useState("");
-  const [condition, setCondition] = useState();
 
   return (
     <>

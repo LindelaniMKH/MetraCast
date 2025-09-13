@@ -18,7 +18,7 @@ function SearchBar({setWeatherJSON, setGeoJSON}){
 
             const geo_response = await fetch(geo_url);
 
-            if (!geo_response.ok){
+            if (!geo_response.ok){  
                 throw new Error(`HTTPS error! status: ${geo_response.status}`);
             }
 
@@ -28,8 +28,8 @@ function SearchBar({setWeatherJSON, setGeoJSON}){
             //const weather_result = await weather_response.json();
 
             //setWeatherData(weather_result);
-            setLat(geo_result.results[0]["latitude"].toString());
-            setLong(geo_result.results[0]["longitude"].toString());
+            setLat(geo_result?.results[0]["latitude"].toString());
+            setLong(geo_result?.results[0]["longitude"].toString());
             //setCurrTemp(weather_result.current["temperature_2m"]);
 
             //console.log(geo_result.results[0]["latitude"].toString());
