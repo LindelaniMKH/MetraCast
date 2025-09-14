@@ -66,7 +66,7 @@ function SearchBar({setWeatherJSON, setGeoJSON}){
 
     return(
     <>
-        <header>
+        <header className="flex flex-row justify-center">
             <input className="p-2 border border-black rounded font-mono" type="text" placeholder="Enter the name of a city" value={city} onChange={(c) => setCity(c.target.value)}></input>
             <button className="p-2 border border-black rounded hover:bg-gray-200 fonto-mono" onClick={fetchData}>Search</button>
         </header>

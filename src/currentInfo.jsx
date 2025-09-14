@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Forcast from "./Forecast";
+import Geolocation from "./Geolocation";
 import ClearDay from "./assets/Weather Icons/Clear Day.svg";
 import Cloudy from "./assets/Weather Icons/Cloudy.svg";
 import Fog from "./assets/Weather Icons/Fog.svg";
@@ -68,6 +69,8 @@ function CurrentInfo({weatherJSON, geoJSON}){
 ;
     console.log(weatherConditions);
     console.log(weatherIcon[0]);
+    console.log(geoJSON?.results[0]["latitude"].toString());
+    console.log(geoJSON?.results[0].country);
 
     return(
         <>
@@ -100,6 +103,7 @@ function CurrentInfo({weatherJSON, geoJSON}){
                   <Forcast condition={weatherConditions[5]} temp={mean_temp[5]} dayNum={5} icon={weatherIcon[5]}></Forcast>
                </div>
             </div>
+            <Geolocation latitude={geoJSON?.results[0]["latitude"].toFixed(2)} longitude={geoJSON?.results[0]["longitude"].toFixed(2)} country={geoJSON?.results[0].country} timezone={geoJSON?.results[0]["timezone"]}></Geolocation>
         </>
     )
 }

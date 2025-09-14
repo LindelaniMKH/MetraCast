@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './App.css'
 import SearchBar from './Searchbar'
 import CurrentInfo from './currentInfo';
-import Forcast from './Forecast';
 
 function App() {
   const [weatherJSON, setWeatherJSON] = useState("");
